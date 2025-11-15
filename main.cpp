@@ -8,7 +8,7 @@ float overallAverage(float** p, int d, int h);
 void showHotDays(float** p, int d, int h); // выводит дни, где средняя температура > общей средней
 
 
-main()
+int main()
 {
     SetConsoleOutputCP(65001); // Переключаем консоль в UTF-8
     SetConsoleCP(65001);
@@ -44,10 +44,20 @@ main()
     showHotDays(data,day,meterage);
 
     // Освобождение памяти
-    for (int i = 0; i < day; ++i){
+    for (int i = 0; i < day; i++){
         delete[] data[i];
     }
     delete[] data;
 
     return 0;
 }
+
+float dayAverage(float* row, int h)
+{
+    float sum = 0;
+    for (int i = 0; i < h; i++){
+        sum += *(row+i);
+    } 
+    return (sum / h);
+}
+
