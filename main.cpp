@@ -41,7 +41,7 @@ int main()
     
     cout << "Общая средняя температура: " << overallAverage(data,day,meterage) << endl;
 
-    showHotDays(data,day,meterage);
+    //showHotDays(data,day,meterage);
 
     // Освобождение памяти
     for (int i = 0; i < day; i++){
@@ -61,3 +61,11 @@ float dayAverage(float* row, int h)
     return (sum / h);
 }
 
+float overallAverage(float** p, int d, int h)
+{
+    float sum = 0;
+    for (int i = 0; i < d; i++){
+        sum += dayAverage(*(p+i),h);
+    }
+    return (sum / d);
+}
