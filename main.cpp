@@ -65,9 +65,11 @@ float overallAverage(float** p, int d, int h)
 {
     float sum = 0;
     for (int i = 0; i < d; i++){
-        sum += dayAverage(*(p+i),h);
+        for (int j = 0; j < h; j++){
+            sum += *(*(p+i) + j);
+        }
     }
-    return (sum / d);
+    return (sum / (d*h));
 }
 
 void showHotDays(float** p, int d, int h)
